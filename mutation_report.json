@@ -1,0 +1,16 @@
+{
+    "total_mutants": 1,
+    "killed_mutants": 0,
+    "survived_mutants": 0,
+    "invalid_mutants": 1,
+    "mutation_score_percent": 0,
+    "results": [
+        {
+            "mutant_id": 1,
+            "operator": "Equality operator",
+            "change": "== 200 -> != 200",
+            "status": "INVALID",
+            "test_output": "no tests ran in 0.02s"
+        }
+    ]
+}
