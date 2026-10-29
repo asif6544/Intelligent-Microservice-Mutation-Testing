@@ -1,16 +1,51 @@
 {
-    "total_mutants": 1,
-    "killed_mutants": 0,
-    "survived_mutants": 0,
-    "invalid_mutants": 1,
-    "mutation_score_percent": 0,
+    "total_mutants": 6,
+    "killed_mutants": 5,
+    "survived_mutants": 1,
+    "invalid_mutants": 0,
+    "mutation_score_percent": 83.33,
     "results": [
         {
             "mutant_id": 1,
-            "operator": "Equality operator",
-            "change": "== 200 -> != 200",
-            "status": "INVALID",
-            "test_output": "no tests ran in 0.02s"
+            "operator": "Equality to inequality",
+            "change": "status_code == 200 -> status_code != 200",
+            "status": "KILLED",
+            "test_output": "FFFFF                                                                    [100%]\n================================== FAILURES ===================================\n_______________________________ test_status_200 _______________________________\ntest_mutant_service.py:6: in test_status_200\n    assert check_service_status(200) is True\nE   assert False is True\nE    +  where False = check_service_status(200)\n_______________________________ test_status_201 _______________________________\ntest_mutant_service.py:10: in test_status_201\n    assert check_service_status(201) is False\nE   assert True is False\nE    +  where True = check_service_status(201)\n_______________________________ test_status_400 _______________________________\ntest_mutant_service.py:14: in test_status_400\n    assert check_service_status(400) is False\nE   assert True is False\nE    +  where True = check_service_status(400)\n_______________________________ test_status_404 _______________________________\ntest_mutant_service.py:18: in test_status_404\n    assert check_service_status(404) is False\nE   assert True is False\nE    +  where True = check_service_status(404)\n_______________________________ test_status_500 _______________________________\ntest_mutant_service.py:22: in test_status_500\n    assert check_service_status(500) is False\nE   assert True is False\nE    +  where True = check_service_status(500)\n=========================== short test summary info ===========================\nFAILED test_mutant_service.py::test_status_200 - assert False is True\nFAILED test_mutant_service.py::test_status_201 - assert True is False\nFAILED test_mutant_service.py::test_status_400 - assert True is False\nFAILED test_mutant_service.py::test_status_404 - assert True is False\nFAILED test_mutant_service.py::test_status_500 - assert True is False\n5 failed in 0.17s"
+        },
+        {
+            "mutant_id": 2,
+            "operator": "Less than",
+            "change": "status_code == 200 -> status_code < 200",
+            "status": "KILLED",
+            "test_output": "F....                                                                    [100%]\n================================== FAILURES ===================================\n_______________________________ test_status_200 _______________________________\ntest_mutant_service.py:6: in test_status_200\n    assert check_service_status(200) is True\nE   assert False is True\nE    +  where False = check_service_status(200)\n=========================== short test summary info ===========================\nFAILED test_mutant_service.py::test_status_200 - assert False is True\n1 failed, 4 passed in 0.12s"
+        },
+        {
+            "mutant_id": 3,
+            "operator": "Greater than",
+            "change": "status_code == 200 -> status_code > 200",
+            "status": "KILLED",
+            "test_output": "FFFFF                                                                    [100%]\n================================== FAILURES ===================================\n_______________________________ test_status_200 _______________________________\ntest_mutant_service.py:6: in test_status_200\n    assert check_service_status(200) is True\nE   assert False is True\nE    +  where False = check_service_status(200)\n_______________________________ test_status_201 _______________________________\ntest_mutant_service.py:10: in test_status_201\n    assert check_service_status(201) is False\nE   assert True is False\nE    +  where True = check_service_status(201)\n_______________________________ test_status_400 _______________________________\ntest_mutant_service.py:14: in test_status_400\n    assert check_service_status(400) is False\nE   assert True is False\nE    +  where True = check_service_status(400)\n_______________________________ test_status_404 _______________________________\ntest_mutant_service.py:18: in test_status_404\n    assert check_service_status(404) is False\nE   assert True is False\nE    +  where True = check_service_status(404)\n_______________________________ test_status_500 _______________________________\ntest_mutant_service.py:22: in test_status_500\n    assert check_service_status(500) is False\nE   assert True is False\nE    +  where True = check_service_status(500)\n=========================== short test summary info ===========================\nFAILED test_mutant_service.py::test_status_200 - assert False is True\nFAILED test_mutant_service.py::test_status_201 - assert True is False\nFAILED test_mutant_service.py::test_status_400 - assert True is False\nFAILED test_mutant_service.py::test_status_404 - assert True is False\nFAILED test_mutant_service.py::test_status_500 - assert True is False\n5 failed in 0.13s"
+        },
+        {
+            "mutant_id": 4,
+            "operator": "Less than or equal",
+            "change": "status_code == 200 -> status_code <= 200",
+            "status": "SURVIVED",
+            "test_output": ".....                                                                    [100%]\n5 passed in 0.03s"
+        },
+        {
+            "mutant_id": 5,
+            "operator": "Greater than or equal",
+            "change": "status_code == 200 -> status_code >= 200",
+            "status": "KILLED",
+            "test_output": ".FFFF                                                                    [100%]\n================================== FAILURES ===================================\n_______________________________ test_status_201 _______________________________\ntest_mutant_service.py:10: in test_status_201\n    assert check_service_status(201) is False\nE   assert True is False\nE    +  where True = check_service_status(201)\n_______________________________ test_status_400 _______________________________\ntest_mutant_service.py:14: in test_status_400\n    assert check_service_status(400) is False\nE   assert True is False\nE    +  where True = check_service_status(400)\n_______________________________ test_status_404 _______________________________\ntest_mutant_service.py:18: in test_status_404\n    assert check_service_status(404) is False\nE   assert True is False\nE    +  where True = check_service_status(404)\n_______________________________ test_status_500 _______________________________\ntest_mutant_service.py:22: in test_status_500\n    assert check_service_status(500) is False\nE   assert True is False\nE    +  where True = check_service_status(500)\n=========================== short test summary info ===========================\nFAILED test_mutant_service.py::test_status_201 - assert True is False\nFAILED test_mutant_service.py::test_status_400 - assert True is False\nFAILED test_mutant_service.py::test_status_404 - assert True is False\nFAILED test_mutant_service.py::test_status_500 - assert True is False\n4 failed, 1 passed in 0.12s"
+        },
+        {
+            "mutant_id": 6,
+            "operator": "Changed status code",
+            "change": "status_code == 200 -> status_code == 201",
+            "status": "KILLED",
+            "test_output": "FF...                                                                    [100%]\n================================== FAILURES ===================================\n_______________________________ test_status_200 _______________________________\ntest_mutant_service.py:6: in test_status_200\n    assert check_service_status(200) is True\nE   assert False is True\nE    +  where False = check_service_status(200)\n_______________________________ test_status_201 _______________________________\ntest_mutant_service.py:10: in test_status_201\n    assert check_service_status(201) is False\nE   assert True is False\nE    +  where True = check_service_status(201)\n=========================== short test summary info ===========================\nFAILED test_mutant_service.py::test_status_200 - assert False is True\nFAILED test_mutant_service.py::test_status_201 - assert True is False\n2 failed, 3 passed in 0.10s"
         }
     ]
 }
